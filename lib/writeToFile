@@ -1,0 +1,16 @@
+// creating class to generate shape to a file
+
+const fs = require("fs");
+class WriteToFile {
+  constructor() {
+    this.fileName = "logo.svg";
+  }
+  write(content) {
+    let fileContent = `<svg height="200" width="300" xmlns="http://www.w3.org/2000/svg">${content}</svg>`;
+    fs.writeFile(this.fileName, fileContent, (err) => {
+      err ? console.log(err) : console.log("generated logo.svg");
+    });
+  }
+}
+
+module.exports = WriteToFile;
